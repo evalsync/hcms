@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VERILINK</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #ffffff;
+    }
+    #frame-container {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body oncontextmenu="return false;">
+  <div id="frame-container">
+    <iframe
+      id="Evalsync"
+      src="https://taupe-paprenjak-3729dd.netlify.app"
+      title="TASKSYNC"
+    >
+      Your browser does not support iframes.
+    </iframe>
+  </div>
+
+  <script>
+    // Disable common DevTools shortcuts
+    document.addEventListener('keydown', function (e) {
+      // F12
+      if (e.key === 'F12') {
+        e.preventDefault();
+      }
+      // Ctrl+Shift+I / Ctrl+Shift+J / Ctrl+U
+      if (
+        (e.ctrlKey && e.shiftKey && ['I', 'J'].includes(e.key)) ||
+        (e.ctrlKey && e.key === 'U')
+      ) {
+        e.preventDefault();
+      }
+    });
+
+    // Detect DevTools open by checking dimensions
+    let devtoolsOpen = false;
+    const threshold = 160;
+    setInterval(() => {
+      const widthThreshold = window.outerWidth - window.innerWidth > threshold;
+      const heightThreshold = window.outerHeight - window.innerHeight > threshold;
+      if (widthThreshold || heightThreshold) {
+        if (!devtoolsOpen) {
+          devtoolsOpen = true;
+          alert("DevTools is not allowed on this page.");
+          window.location.href = "about:blank"; // Optional: redirect or block access
+        }
+      } else {
+        devtoolsOpen = false;
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
