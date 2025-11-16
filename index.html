@@ -1,188 +1,79 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>We'll be back soon — Under Construction</title>
-  <meta name="description" content="Site under construction. We're building something great — check back soon!">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VERILINK</title>
   <style>
-    :root{
-      --bg:#0f1724;
-      --card:#0b1220;
-      --accent:#7c3aed;
-      --muted:#9aa4b2;
-      --glass: rgba(255,255,255,0.03);
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, 'Helvetica Neue', Arial;
-      background: radial-gradient(1200px 600px at 10% 10%, rgba(124,58,237,0.08), transparent),
-                  radial-gradient(900px 400px at 90% 90%, rgba(14,165,233,0.03), transparent),
-                  var(--bg);
-      color:#e6eef6;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:24px;
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #ffffff;
     }
-    .card{
-      width:100%;
-      max-width:980px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:14px;
-      padding:36px;
-      box-shadow: 0 10px 30px rgba(2,6,23,0.6);
-      display:grid;
-      grid-template-columns: 1fr 420px;
-      gap:28px;
-      align-items:center;
-      border:1px solid rgba(255,255,255,0.03);
+    #frame-container {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
     }
-    @media (max-width:880px){
-      .card{grid-template-columns:1fr; padding:28px}
-    }
-    .left h1{
-      margin:0 0 8px 0;
-      font-size:28px;
-      letter-spacing:-0.02em;
-    }
-    .left p{color:var(--muted); margin:0 0 18px 0; line-height:1.5}
-    .features{display:flex; gap:12px; flex-wrap:wrap; margin-top:12px}
-    .chip{background:var(--glass); padding:6px 10px; border-radius:999px; font-size:13px; color:var(--muted)}
-    .countdown{display:flex; gap:8px; margin-top:18px}
-    .countdown .unit{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:14px; border-radius:10px; min-width:64px; text-align:center;}
-    .unit .num{font-weight:700; font-size:20px}
-    .unit .lbl{font-size:11px; color:var(--muted); margin-top:4px}
-
-    /* right column */
-    .right{display:flex; align-items:center; justify-content:center}
-    .mock{
-      width:100%;
-      max-width:380px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
-      border-radius:12px; padding:18px; border:1px solid rgba(255,255,255,0.03);
-    }
-    .mock .illustration{height:180px; display:flex; align-items:center; justify-content:center; position:relative}
-    .gear{width:64px;height:64px;border-radius:12px;background:linear-gradient(180deg, var(--accent), #5b21b6); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:22px; box-shadow:0 8px 30px rgba(124,58,237,0.12); transform-origin:center; animation:spin 6s linear infinite}
-    @keyframes spin{to{transform:rotate(360deg)}}
-    .mock p{color:var(--muted); margin:12px 0 6px 0}
-    .actions{display:flex; gap:8px; margin-top:10px}
-    .btn{padding:10px 14px; border-radius:10px; font-weight:600; border:0; cursor:pointer}
-    .btn-primary{background:linear-gradient(90deg,var(--accent), #4f46e5); color:white}
-    .btn-ghost{background:transparent; color:var(--muted); border:1px solid rgba(255,255,255,0.03)}
-
-    /* form */
-    form{display:flex; gap:8px; margin-top:12px}
-    input[type=email]{flex:1;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;outline:none}
-    small{display:block; margin-top:8px; color:var(--muted)}
-
-    footer{margin-top:18px; display:flex; justify-content:space-between; color:var(--muted); font-size:13px}
-    a.link{color:inherit; text-decoration:none; border-bottom:1px dashed rgba(255,255,255,0.03)}
-
-    /* tiny responsive */
-    @media (max-width:480px){
-      .gear{width:58px;height:58px}
-      .card{padding:20px}
-      .left h1{font-size:22px}
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
     }
   </style>
 </head>
-<body>
-  <main class="card" role="main">
-    <section class="left">
-      <h1>We're building something great — coming soon</h1>
-      <p>Thanks for stopping by. We're currently improving the site to serve you better. Meanwhile you can get updates or contact us below.</p>
-
-      <div class="features" aria-hidden>
-        <div class="chip">New design</div>
-        <div class="chip">Faster performance</div>
-        <div class="chip">More content</div>
-      </div>
-
-      <div class="countdown" aria-label="Countdown to launch">
-        <div class="unit"><div class="num" id="days">--</div><div class="lbl">Days</div></div>
-        <div class="unit"><div class="num" id="hours">--</div><div class="lbl">Hours</div></div>
-        <div class="unit"><div class="num" id="mins">--</div><div class="lbl">Minutes</div></div>
-        <div class="unit"><div class="num" id="secs">--</div><div class="lbl">Seconds</div></div>
-      </div>
-
-      <form id="subscribe" onsubmit="return handleSubscribe(event)" aria-label="Subscribe for updates">
-        <input id="email" type="email" placeholder="Your email address" required aria-required="true">
-        <button class="btn btn-primary" type="submit">Notify me</button>
-      </form>
-      <small id="msg">We won't share your email. No spam.</small>
-
-      <footer>
-        <div>Need help? <a class="link" href="mailto:hello@example.com">hello@example.com</a></div>
-        <div>&copy; <span id="year"></span> Example Co.</div>
-      </footer>
-    </section>
-
-    <aside class="right">
-      <div class="mock" aria-hidden>
-        <div class="illustration">
-          <div class="gear">&lt;/&gt;</div>
-        </div>
-        <p>Working behind the scenes — polishing, testing, and deploying.</p>
-        <div class="actions">
-          <button class="btn btn-primary" onclick="openContact()">Contact us</button>
-          <button class="btn btn-ghost" onclick="openTwitter()">Twitter</button>
-        </div>
-      </div>
-    </aside>
-  </main>
+<body oncontextmenu="return false;">
+  <div id="frame-container">
+    <iframe
+      id="Evalsync"
+      src="https://educational-manageme-irio.bolt.host"
+      title="TASKSYNC"
+    >
+      Your browser does not support iframes.
+    </iframe>
+  </div>
 
   <script>
-    // Set copyright year
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // Disable common DevTools shortcuts
+    document.addEventListener('keydown', function (e) {
+      // F12
+      if (e.key === 'F12') {
+        e.preventDefault();
+      }
+      // Ctrl+Shift+I / Ctrl+Shift+J / Ctrl+U
+      if (
+        (e.ctrlKey && e.shiftKey && ['I', 'J'].includes(e.key)) ||
+        (e.ctrlKey && e.key === 'U')
+      ) {
+        e.preventDefault();
+      }
+    });
 
-    // Example launch date (change as needed) — use absolute date to avoid ambiguity
-    // NOTE: user can update this value to their real launch date
-    const LAUNCH_DATE = new Date('2025-12-15T10:00:00'); // YYYY-MM-DDTHH:MM:SS
-
-    function updateCountdown(){
-      const now = new Date();
-      let diff = Math.max(0, LAUNCH_DATE - now);
-      const days = Math.floor(diff / (1000*60*60*24));
-      diff -= days * (1000*60*60*24);
-      const hours = Math.floor(diff / (1000*60*60));
-      diff -= hours * (1000*60*60);
-      const mins = Math.floor(diff / (1000*60));
-      diff -= mins * (1000*60);
-      const secs = Math.floor(diff / 1000);
-      document.getElementById('days').textContent = String(days).padStart(2,'0');
-      document.getElementById('hours').textContent = String(hours).padStart(2,'0');
-      document.getElementById('mins').textContent = String(mins).padStart(2,'0');
-      document.getElementById('secs').textContent = String(secs).padStart(2,'0');
-    }
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-
-    // Subscribe handler (no backend) — saves to localStorage and shows message
-    function handleSubscribe(e){
-      e.preventDefault();
-      const el = document.getElementById('email');
-      const email = el.value.trim();
-      if(!email) return false;
-      // simple email save to localStorage (client-only)
-      const list = JSON.parse(localStorage.getItem('subscribers') || '[]');
-      if(!list.includes(email)) list.push(email);
-      localStorage.setItem('subscribers', JSON.stringify(list));
-      document.getElementById('msg').textContent = 'Thanks — we\'ll notify you when we launch!';
-      el.value = '';
-      return false;
-    }
-
-    function openContact(){
-      window.location.href = 'mailto:hello@example.com?subject=Site%20Inquiry';
-    }
-    function openTwitter(){
-      window.open('https://twitter.com/', '_blank');
-    }
+    // Detect DevTools open by checking dimensions
+    let devtoolsOpen = false;
+    const threshold = 160;
+    setInterval(() => {
+      const widthThreshold = window.outerWidth - window.innerWidth > threshold;
+      const heightThreshold = window.outerHeight - window.innerHeight > threshold;
+      if (widthThreshold || heightThreshold) {
+        if (!devtoolsOpen) {
+          devtoolsOpen = true;
+          alert("DevTools is not allowed on this page.");
+          window.location.href = "about:blank"; // Optional: redirect or block access
+        }
+      } else {
+        devtoolsOpen = false;
+      }
+    }, 1000);
   </script>
 </body>
 </html>
